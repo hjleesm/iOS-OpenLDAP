@@ -13,7 +13,34 @@
 		482A18B22511AB65008F79DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 482A18B02511AB65008F79DA /* Main.storyboard */; };
 		482A18B42511AB67008F79DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482A18B32511AB67008F79DA /* Assets.xcassets */; };
 		482A18B72511AB67008F79DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 482A18B52511AB67008F79DA /* LaunchScreen.storyboard */; };
+		482A18D42511B25A008F79DA /* LDAPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 482A18D22511B25A008F79DA /* LDAPController.m */; };
+		482A18FC2511CC5B008F79DA /* liblber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 482A18F92511CC4C008F79DA /* liblber.a */; };
+		482A18FD2511CC5B008F79DA /* libldap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 482A18F72511CC4C008F79DA /* libldap.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		482A18F62511CC4C008F79DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 482A18EF2511CC4C008F79DA /* openldap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A03ADDBE11D14F1200F5A51F;
+			remoteInfo = ldap;
+		};
+		482A18F82511CC4C008F79DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 482A18EF2511CC4C008F79DA /* openldap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A03ADE2A11D1520A00F5A51F;
+			remoteInfo = lber;
+		};
+		482A18FA2511CC57008F79DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 482A18EF2511CC4C008F79DA /* openldap.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A03ADE4A11D1530F00F5A51F;
+			remoteInfo = openldap;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		482A18A72511AB65008F79DA /* iOS-OpenLDAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-OpenLDAP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +51,10 @@
 		482A18B32511AB67008F79DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		482A18B62511AB67008F79DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		482A18B82511AB67008F79DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		482A18D02511B235008F79DA /* iOS-OpenLDAP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-OpenLDAP-Bridging-Header.h"; sourceTree = "<group>"; };
+		482A18D22511B25A008F79DA /* LDAPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDAPController.m; sourceTree = "<group>"; };
+		482A18D32511B25A008F79DA /* LDAPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDAPController.h; sourceTree = "<group>"; };
+		482A18EF2511CC4C008F79DA /* openldap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openldap.xcodeproj; path = "iOS-OpenLDAP/iPhoneOS-OpenLDAP/openldap.xcodeproj"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482A18FC2511CC5B008F79DA /* liblber.a in Frameworks */,
+				482A18FD2511CC5B008F79DA /* libldap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +73,10 @@
 		482A189E2511AB65008F79DA = {
 			isa = PBXGroup;
 			children = (
+				482A18BF2511ACF9008F79DA /* Project */,
 				482A18A92511AB65008F79DA /* iOS-OpenLDAP */,
 				482A18A82511AB65008F79DA /* Products */,
+				482A18CD2511AED9008F79DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +91,8 @@
 		482A18A92511AB65008F79DA /* iOS-OpenLDAP */ = {
 			isa = PBXGroup;
 			children = (
+				482A18D12511B23F008F79DA /* LDAP */,
+				482A18D02511B235008F79DA /* iOS-OpenLDAP-Bridging-Header.h */,
 				482A18AA2511AB65008F79DA /* AppDelegate.swift */,
 				482A18AC2511AB65008F79DA /* SceneDelegate.swift */,
 				482A18AE2511AB65008F79DA /* ViewController.swift */,
@@ -65,6 +102,39 @@
 				482A18B82511AB67008F79DA /* Info.plist */,
 			);
 			path = "iOS-OpenLDAP";
+			sourceTree = "<group>";
+		};
+		482A18BF2511ACF9008F79DA /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				482A18EF2511CC4C008F79DA /* openldap.xcodeproj */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		482A18CD2511AED9008F79DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		482A18D12511B23F008F79DA /* LDAP */ = {
+			isa = PBXGroup;
+			children = (
+				482A18D32511B25A008F79DA /* LDAPController.h */,
+				482A18D22511B25A008F79DA /* LDAPController.m */,
+			);
+			path = LDAP;
+			sourceTree = "<group>";
+		};
+		482A18F02511CC4C008F79DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				482A18F72511CC4C008F79DA /* libldap.a */,
+				482A18F92511CC4C008F79DA /* liblber.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -81,6 +151,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				482A18FB2511CC57008F79DA /* PBXTargetDependency */,
 			);
 			name = "iOS-OpenLDAP";
 			productName = "iOS-OpenLDAP";
@@ -99,6 +170,7 @@
 				TargetAttributes = {
 					482A18A62511AB65008F79DA = {
 						CreatedOnToolsVersion = 11.7;
+						LastSwiftMigration = 1170;
 					};
 				};
 			};
@@ -113,12 +185,35 @@
 			mainGroup = 482A189E2511AB65008F79DA;
 			productRefGroup = 482A18A82511AB65008F79DA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 482A18F02511CC4C008F79DA /* Products */;
+					ProjectRef = 482A18EF2511CC4C008F79DA /* openldap.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				482A18A62511AB65008F79DA /* iOS-OpenLDAP */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		482A18F72511CC4C008F79DA /* libldap.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libldap.a;
+			remoteRef = 482A18F62511CC4C008F79DA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		482A18F92511CC4C008F79DA /* liblber.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblber.a;
+			remoteRef = 482A18F82511CC4C008F79DA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		482A18A52511AB65008F79DA /* Resources */ = {
@@ -138,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482A18D42511B25A008F79DA /* LDAPController.m in Sources */,
 				482A18AF2511AB65008F79DA /* ViewController.swift in Sources */,
 				482A18AB2511AB65008F79DA /* AppDelegate.swift in Sources */,
 				482A18AD2511AB65008F79DA /* SceneDelegate.swift in Sources */,
@@ -145,6 +241,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		482A18FB2511CC57008F79DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = openldap;
+			targetProxy = 482A18FA2511CC57008F79DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		482A18B02511AB65008F79DA /* Main.storyboard */ = {
@@ -216,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -284,14 +388,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"iOS-OpenLDAP/iPhoneOS-OpenLDAP/include",
+					"iOS-OpenLDAP/iPhoneOS-OpenLDAP/openldap/include",
+				);
 				INFOPLIST_FILE = "iOS-OpenLDAP/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.iOS-OpenLDAP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-OpenLDAP/iOS-OpenLDAP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -301,14 +413,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"iOS-OpenLDAP/iPhoneOS-OpenLDAP/include",
+					"iOS-OpenLDAP/iPhoneOS-OpenLDAP/openldap/include",
+				);
 				INFOPLIST_FILE = "iOS-OpenLDAP/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.iOS-OpenLDAP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-OpenLDAP/iOS-OpenLDAP-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
